@@ -10,9 +10,8 @@ type Address struct {
     Address2 string         `gorm:"type:varchar(100);unique"`
 }
 
-func NewAddress () Address{
-	address := Address{}
-	return address
+func NewAddress () *Address {
+	return new(Address)
 }
 
 func (address *Address) Add (address1, address2 string) {
