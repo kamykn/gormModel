@@ -2,17 +2,34 @@ package main
 
 import ( 
 	"fmt"
+	"./model"
 	"./address"
-	_ "./migration"
+	"./migration"
 )
 
 func main() {
-	//fmt.Println(model.DB.HasTable("new_table"))
-
-	addObj := address.NewAddress()
-	addObj.Add("chiba1", "ooami1")
-	fmt.Println(addObj.First())
-
-	//migration.Up()
+	//exists()
+	add()
+	// migrationUp()
+	// migrationDown()
 }
+
+func exists() {
+	fmt.Println(model.DB.HasTable("new_table"))
+}
+
+func add () {
+	newAddress := address.NewAddress()
+	newAddress.Add("Tokyo", "Setagaya")
+	fmt.Println(newAddress.First())
+}
+
+func migrationUp () {
+	migration.Up()
+}
+
+func migrationDown () {
+	migration.Down()
+}
+
 
