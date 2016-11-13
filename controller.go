@@ -2,26 +2,20 @@ package main
 
 import ( 
 	"fmt"
-	"./model"
-	"./address"
+	"./models"
 	"./migration"
 )
 
 func main() {
-	//exists()
+	migrationDown()
+	migrationUp()
 	add()
-	// migrationUp()
-	// migrationDown()
-}
-
-func exists() {
-	fmt.Println(model.DB.HasTable("new_table"))
 }
 
 func add () {
-	newAddress := address.NewAddress()
-	newAddress.Add("Tokyo", "Setagaya")
-	fmt.Println(newAddress.First())
+	addressModel := models.NewAddressModel()
+	addressModel.Add("Tokyo", "Setagaya")
+	fmt.Println(addressModel.First())
 }
 
 func migrationUp () {

@@ -1,20 +1,20 @@
 package migration
 
 import ( 
-	"../model"
-	"../address"
+	"../models"
 )
 
-
 func Up() {
-	address := address.NewAddress()
-	model.DB.CreateTable(address)
-	model.DB.Set("gorm:table_options", "ENGINE=InnoDB").CreateTable(address)
+	addressModel := models.NewAddressModel()
+	addressModel.CreateTable(models.Address{})
+	addressModel.Set("gorm:table_options", "ENGINE=InnoDB").CreateTable(models.Address{})
 }
 
 func Down() {
-	address := address.NewAddress()
-	model.DB.DropTable(address)
+	address := models.Address{}
+
+	addressModel := models.NewAddressModel()
+	addressModel.DropTable(address)
 }
 
 
