@@ -9,21 +9,29 @@ import (
 func main() {
 	migrationDown()
 	migrationUp()
-	add()
+	addAddress()
+	addUser()
+
 }
 
-func add () {
+func addAddress () {
 	addressModel := models.NewAddressModel()
 	addressModel.Add("Tokyo", "Setagaya")
 	fmt.Println(addressModel.First())
 }
 
+func addUser() {
+	userModel := models.NewUserModel()
+	userModel.Add("kmszk", 27)
+}
+
 func migrationUp () {
-	migration.Up()
+	migration.UpAddressTable()
+	migration.UpUserTable()
 }
 
 func migrationDown () {
-	migration.Down()
+	migration.DownAddressTable()
+	migration.DownUserTable()
 }
-
 

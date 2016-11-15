@@ -12,6 +12,7 @@ type Address struct {
 
 type AddressModel struct {
 	*model.Model
+	Address
 }
 
 func NewAddressModel () *AddressModel {
@@ -21,18 +22,16 @@ func NewAddressModel () *AddressModel {
 }
 
 func (model *AddressModel) Add (address1, address2 string) {
-	address := Address{}
-	address.Address1 = address1
-	address.Address2 =  address2
+	model.Address.Address1 = address1
+	model.Address.Address2 =  address2
 
-	model.NewRecord(address)
-	model.Create(&address)
+	model.NewRecord(model.Address)
+	model.Create(&model.Address)
 }
 
 func (model *AddressModel) First() Address {
-	address := Address{}
-	model.DB.First(&address)
-	return address
+	model.DB.First(&model.Address)
+	return model.Address
 }
 
 
