@@ -13,8 +13,6 @@ const (
 	DB_NAME = "revel-myapp"
 )
 
-var DB *gorm.DB
-
 type Model struct {
 	*gorm.DB
 }
@@ -22,19 +20,20 @@ type Model struct {
 func NewModel() *Model {
 	model := new(Model)
 
-	if (DB == nil) {
-		// データベースの初期化
-		dbSetting := USER_NAME + ":" + PASSWORD + "@tcp(" + IP_ADDRESS + ":" + PORT + ")/" + DB_NAME
-		db, err := gorm.Open("mysql", dbSetting)
-
-		if (err != nil) {
-			// erro handle
-		}
-
-		DB = db
+	if model.DB != nil {
+		return model
 	}
 
-	model.DB = DB
+
+	// データベースの初期化
+	dbSetting := USER_NAME + ":" + PASSWORD + "@tcp(" + IP_ADDRESS + ":" + PORT + ")/" + DB_NAME
+	db, err := gorm.Open("mysql", dbSetting)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	model.DB = db
 
 	return model
 }

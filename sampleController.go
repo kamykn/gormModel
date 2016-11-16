@@ -16,6 +16,7 @@ func main() {
 
 func addAddress () {
 	addressModel := models.NewAddressModel()
+
 	addressModel.Add("Tokyo", "Setagaya")
 	fmt.Println(addressModel.First())
 }
