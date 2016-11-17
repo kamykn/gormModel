@@ -1,0 +1,10 @@
+package model
+
+const (
+	USER_NAME = "myuser"
+	PASSWORD = "**********"
+	HOST = "111.111.111.111"
+	PORT = "3306"
+	DB_NAME = "mydatabase"
+)
+
