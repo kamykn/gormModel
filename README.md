@@ -8,7 +8,7 @@ $ cd models/model
 $ mv config.go.example config.go
 ```
 
-Then, change the Database settings.
+Then, change the database settings.
 
 ```
 package model
@@ -24,7 +24,7 @@ const (
 
 ## Add Model
 
-models/mode/sampleUser.go
+models/model/sampleUser.go
 ```
 package models
 
