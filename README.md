@@ -1,5 +1,13 @@
 # gormModel
 
+# go run
+
+```
+go get github.com/jinzhu/gorm
+go get github.com/jinzhu/gorm/dialects/sqlite
+```
+
+
 ## Settings
 Rename config.go.example to config.go.
 
