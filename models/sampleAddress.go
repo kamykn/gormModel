@@ -18,7 +18,7 @@ type AddressModel struct {
 func NewAddressModel () *AddressModel {
 	addressModel := new(AddressModel)
 
-	addressModel.Model = model.NewModel()
+	addressModel.Model = model.GetInstance()
 	return addressModel
 }
 

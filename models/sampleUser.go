@@ -18,7 +18,7 @@ type UserModel struct {
 func NewUserModel () *UserModel {
 	userModel := new(UserModel)
 
-	userModel.Model = model.NewModel()
+	userModel.Model = model.GetInstance()
 	return userModel
 }
 
